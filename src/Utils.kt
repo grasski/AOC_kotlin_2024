@@ -6,7 +6,11 @@ import kotlin.io.path.readText
 /**
  * Reads lines from the given input txt file.
  */
-fun readInput(name: String) = Path("src/$name.txt").readText().trim().lines()
+fun readInput(name: String): List<String> {
+    val (prevDayNumS) = Regex("Day(\\d\\d)").find(name)!!.destructured
+
+    return Path("src/Day$prevDayNumS/$name.txt").readText().trim().lines()
+}
 
 /**
  * Converts string to md5 hash.
