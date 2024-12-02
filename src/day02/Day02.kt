@@ -4,12 +4,12 @@ import readInput
 import kotlin.math.abs
 
 fun main() {
-    fun checkLevel(level: List<Int>): Boolean{
+    fun checkLevels(levels: List<Int>): Boolean{
         var direction = 0
 
-        level.forEachIndexed { index, i ->
-            if (index < level.size - 1) {
-                val nextLevel = level[index + 1]
+        levels.forEachIndexed { index, i ->
+            if (index < levels.size - 1) {
+                val nextLevel = levels[index + 1]
 
                 val diff = i - nextLevel
                 if (index == 0){
@@ -31,7 +31,7 @@ fun main() {
         input.forEach { line ->
             val levels = line.split(" ").map { it.toInt() }
 
-            if (checkLevel(levels)) {
+            if (checkLevels(levels)) {
                 sum ++
             }
         }
@@ -43,13 +43,13 @@ fun main() {
         input.forEach { line ->
             val levels = line.split(" ").map { it.toInt() }.toMutableList()
 
-            if (checkLevel(levels)) {
+            if (checkLevels(levels)) {
                 sum ++
             } else{
                 var i = 0
                 while (i < levels.size) {
                     val item = levels.removeAt(i)
-                    if (checkLevel(levels)) {
+                    if (checkLevels(levels)) {
                         sum ++
                         break
                     }
