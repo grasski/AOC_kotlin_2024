@@ -45,7 +45,6 @@ fun main() {
                 result = regex.find(line, index)
             }
         }
-
         return sum
     }
     
